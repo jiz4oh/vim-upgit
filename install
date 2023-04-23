@@ -1,0 +1,54 @@
+#!/bin/sh
+set -e
+
+# This script downloads the binaries for the most recent version of Upgit.
+
+case $(uname -s) in
+  Linux)
+    sysname=linux
+    ;;
+  Darwin)
+    sysname=macos
+    ;;
+  CYGWIN*)
+    sysname=windows
+    ;;
+  MINGW*)
+    sysname=windows
+    ;;
+  MSYS*)
+    sysname=windows
+    ;;
+  Windows*)
+    sysname=windows
+    ;;
+  *)
+    echo "Error: Unsupported system."
+    exit 1
+    ;;
+esac
+
+case $(uname -m) in
+  arm64)
+    sysarch=arm64
+    ;;
+  aarch64)
+    sysarch=arm64
+    ;;
+  arm*)
+    sysarch=arm
+    ;;
+  x86_64)
+    sysarch=amd64
+    ;;
+  *64)
+    sysarch=amd64
+    ;;
+esac
+
+url="https://github.com/pluveto/upgit/releases/latest/download/upgit_${sysname}_${sysarch}"
+
+rm -f ./upgit &>/dev/null 2>&1
+
+curl -L "$url" -o ./upgit
+chmod +x ./upgit
