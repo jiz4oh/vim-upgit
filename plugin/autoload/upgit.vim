@@ -20,7 +20,9 @@ function! s:upload(...) abort
     return
   endif
 
-  let path = fnamemodify(expand(path), ':p')
+  if path !~# '^:'
+    let path = fnamemodify(expand(path), ':p')
+  end
 
   let upgit = exepath(expand(g:upgit_bin_path))
 
