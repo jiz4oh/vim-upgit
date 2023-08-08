@@ -11,6 +11,7 @@ if !exists('g:upgit_no_defult')
   augroup END
 
   command! -nargs=* Upgit let @+=upgit#upload(<f-args>)
+  command! -nargs=* UpgitClipboard let @+=upgit#upload(':clipboard')
 endif
 
 if !exists('g:upgit_bin_path')
