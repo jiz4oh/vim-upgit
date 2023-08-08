@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
+BASE=$(dirname "$0")
 # This script downloads the binaries for the most recent version of Upgit.
 
 case $(uname -s) in
@@ -48,7 +49,7 @@ esac
 
 url="https://github.com/pluveto/upgit/releases/latest/download/upgit_${sysname}_${sysarch}"
 
-rm -f ./upgit &>/dev/null 2>&1
+rm -f $BASE/upgit &>/dev/null 2>&1
 
-curl -L "$url" -o ./upgit
-chmod +x ./upgit
+curl -L "$url" -o $BASE/upgit
+chmod +x $BASE/upgit
