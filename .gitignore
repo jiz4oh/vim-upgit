@@ -2,3 +2,4 @@ upgit
 config.toml
 history.log
 upgit.log
+!plugin/**/
