@@ -30,6 +30,8 @@ Plug 'jiz4oh/vim-upgit', { 'do': './install' }
 2. upload image from clipboard, e.g. snipping image by [snipaste](https://github.com/Snipaste/feedback)
 
     ```vim
+    :UpgitClipboard
+    " equivalent to
     :Upgit :clipboard
     ```
 
